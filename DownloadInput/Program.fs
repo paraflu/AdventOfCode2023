@@ -1,19 +1,17 @@
-﻿open System
+open System
 open CommandLine
 open System.Collections
 open System.Net
 open FSharp.Data
 
-// For more information see https://aka.ms/fsharp-console-apps
-// printfn "Hello from F#"
-
-// Console.ReadLine() |> ignore
-
-type options =
-    { [<Option('d', "days", Required = true, HelpText = "Giorno da elaborare")>]
-      day: int
+type options =  {
+      [<Option('d', "days", Required = true, HelpText = "Giorno da elaborare")>]
+      day: int;
+      [<Option('y', "year", Required = false, Default = 0, HelpText = "Anno di riferimento")>]
+      year: int;
       [<Option('c', "cookie", Required = true, HelpText = "Cookie di sessione")>]
-      cookie: string }
+      cookie: string;
+    }
 
 let run (parsed: options) =
     let cc = CookieContainer()
@@ -23,8 +21,12 @@ let run (parsed: options) =
 
     cc.Add cookie
 
+    let year =  match parsed.year with 
+                | 0 -> DateTime.Now.Year
+                | _ -> parsed.year
+    let url = sprintf "https://adventofcode.com/%d/day/%d/input"  year parsed.day
     let response =
-        Http.RequestString("https://adventofcode.com/2022/day/1/input", cookieContainer = cc)
+        Http.RequestString(url, cookieContainer = cc)
 
     printf "%s" response
 
