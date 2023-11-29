@@ -37,8 +37,8 @@ done
 day=$((day <= 25 ? day : 25))
 
 (
-    cd DownloadInput >/dev/null 2>&1 || exit
-    printf "\n${green}Download input data for day ${yellow}%d${green} of ${yellow}AdventOfCode%d${green}...${reset}\n\n" "$day" "$year"
+    cd "$(dirname "$0")/DownloadInput" >/dev/null 2>&1 || exit
+    printf "\n${green}Download input data for day ${yellow}%d${green} of ${yellow}AdventOfCode%d${green}...${reset}\n\n" "$day" "$year" >/dev/stderr
     dotnet run -c Release -- -d "$day" \
         --year "${year:-2022}" \
         -c "$cookie"
