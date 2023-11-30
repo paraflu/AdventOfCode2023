@@ -33,3 +33,5 @@ obj/
 .fake
 2022/Day1/day1
 2022/Day2/day2
+/day1.txt
+/.vs/AdvCode2023
