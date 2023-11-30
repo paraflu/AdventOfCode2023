@@ -1,29 +1,17 @@
 ﻿open Utility.IO
+open Terminal.Gui
+open System
+open NStack
 
 let day1_part1 filename =
-
     let rows = readAllTextAsync filename |> Async.RunSynchronously
-
-    let maxCalories =
-        rows.Trim().Split("\n\n")
-        |> Seq.map (fun block -> block.Split("\n") |> Seq.map int |> Seq.reduce (+))
-        |> Seq.max
-
-    printf "part1: Max calories %d\n" maxCalories
+    printf "part1: Max calories %d\n" 0
 
 let day1_part2 filename =
     let rows = readAllTextAsync filename |> Async.RunSynchronously
+    printf "part2: top3 %d\n" 0
 
-    let top3 =
-        rows.Trim().Split("\n\n")
-        |> Seq.map (fun block -> block.Split("\n") |> Seq.map int |> Seq.reduce (+))
-        |> Seq.sortDescending
-        |> Seq.take 3
-
-        |> Seq.reduce (+)
-
-    printf "part2: top3 %d\n" top3
-
+let ustr (x: string) = ustring.Make(x)
 
 [<EntryPoint>]
 let main args =

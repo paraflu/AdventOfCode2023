@@ -16,6 +16,17 @@
             "console": "internalConsole"
         },
         {
+            "name": "2023 Day1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2023/Day1/bin/Debug/net8.0/Day1.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2023/Day1",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": "2022 Day2",
             "type": "coreclr",
             "request": "launch",

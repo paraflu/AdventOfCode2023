@@ -13,4 +13,8 @@
     <ProjectReference Include="..\..\Utility\Utility.fsproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Terminal.Gui" Version="0.0.4" />
+  </ItemGroup>
+
 </Project>
