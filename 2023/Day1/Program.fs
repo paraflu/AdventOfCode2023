@@ -18,7 +18,7 @@ let Number = [| "0"; "1"; "2"; "3"; "4"; "5"; "6"; "7";"8"; "9"; "one"; "two"; "
 
 let strToInt (str:string) : int =
     match str with
-    | "0" | "one" -> 1
+    | "1" | "one" -> 1
     | "2" | "two" ->  2
     | "3" | "three" -> 3
     | "4" | "four" -> 4
@@ -27,28 +27,39 @@ let strToInt (str:string) : int =
     | "7" | "seven" -> 7 
     | "8" | "eight" ->  8
     | "9" | "nine" -> 9
-    | _ -> failwith "Impossibile decodificare il numero"
+    | _ -> failwith $"Impossibile decodificare il numero {str}"
 
 let searchNumber (str:string) = 
-    Number |> Array.map (fun n -> (str.IndexOf(n), int n)) 
+    Number 
+    |> Array.map (fun n -> 
+                                // printf ">%s ~ %s = %d\n" str n (str.IndexOf(n))
+                                (str.IndexOf(n), n)
+                ) 
+    |> Array.filter (fun (x, _) -> x >= 0)
+    |> Array.sortBy (fun (x, y) -> x) 
+   
+let extract numbers =
+    numbers 
+    |> Array.map (fun (x, y) -> y) 
+    |> Array.head 
+    |> strToInt
 
 let parserRow (r:string) : int =
-    let first:char = r |> searchNumber |> Array.head 
-    match r.Substring(first, 1) with
-        | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" |"9" -> 
-    let last:char = r |> Seq.rev |>  searchNumber |> Array.head |> strToInt
+    let first = r |> searchNumber |> extract
+    let last = r |> searchNumber |> Array.rev |> extract
+    printf "%s > %d%d\n" r first last
     int $"{first}{last}"
     
 let day1_part2 filename =
     let rows = readAllLinesAsync filename |> Async.RunSynchronously
 
-    let result rows |> Seq.map parseRow
-    printf "part2: %d\n" 0
+    let result = rows |> Seq.map parserRow |> Seq.reduce (+)
+    printf "part2: %d\n" result
 
 let ustr (x: string) = ustring.Make(x)
 
 [<EntryPoint>]
 let main args =
-    day1_part1 "day1.txt"
+    // day1_part1 "day1.txt"
     day1_part2 "day1.txt"
     0
