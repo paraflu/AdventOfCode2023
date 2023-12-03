@@ -5,6 +5,50 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "2022 Day1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2022/Day1/bin/Debug/net8.0/Day1.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2022/Day1",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "2023 Day1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2023/Day1/bin/Debug/net8.0/Day1.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2023/Day1",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "2023 Day2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2023/Day2/bin/Debug/net8.0/Day2.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2023/Day2",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "2022 Day2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2022/Day2/bin/Debug/net8.0/Day2.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2022/Day2",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
