@@ -49,6 +49,17 @@
             "console": "internalConsole"
         },
         {
+            "name": "2023 Day4",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/2023/Day4/bin/Debug/net8.0/Day4.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/2023/Day4",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": "2022 Day2",
             "type": "coreclr",
             "request": "launch",
@@ -59,7 +70,6 @@
             "stopAtEntry": false,
             "console": "internalConsole"
         },
-        
         {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",

@@ -35,3 +35,6 @@ obj/
 2022/Day2/day2
 /day1.txt
 /.vs/AdvCode2023
+
+day?.txt
+day?_test.txt
